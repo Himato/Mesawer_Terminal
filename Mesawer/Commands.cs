@@ -322,22 +322,18 @@ namespace Mesawer
         [Command(Name = "Shut", Description = "Shuts down your PC")]
         public static void ShutDown(string input)
         {
-            var temp = Regex.Match(input, "^down(.*)&", RegexOptions.IgnoreCase);
+            var temp = Regex.Match(input, @"^down[ ]{0,1}(after){0,1}[ ]{0,1}([\d]*)$", RegexOptions.IgnoreCase);
             if (temp.Success)
             {
                 try
                 {
-                    var rest = temp.Groups[1].ToString().Split(' ');
+                    var rest = temp.Groups[2].ToString();
 
-                    if (rest.Length == 2)
+                    if (!rest.IsNullOrWhitespace())
                     {
-                        if (rest[0].Equals("after", StringComparison.InvariantCultureIgnoreCase) &&
-                            int.TryParse(rest[1], out var result))
-                        {
-                            var timer = new Timer(ShutDownCallback, null, 0, result * 1000);
-                            Console.WriteLine("Your PC will be turned off after {0} seconds, restart the terminal to cancel.",
-                                Convert.ToInt32(result));
-                        }
+                        var timer = new Timer(ShutDownCallback, null, 0, Convert.ToInt32(rest) * 1000);
+                        Console.WriteLine("Your PC will be turned off after {0} seconds, restart the terminal to cancel.",
+                            Convert.ToInt32(Convert.ToInt32(rest)));
                     }
                     else
                     {
@@ -346,7 +342,7 @@ namespace Mesawer
                 }
                 catch
                 {
-                    throw new InvalidSyntaxException("Please, enter a valid amount of time in seconds (e.g. shut down after 3600)");
+                    throw new InvalidSyntaxException(" enter a valid amount of time in seconds (e.g. shut down after 3600)");
                 }
             }
             else

@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Timers;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Threading;
 using Mesawer.Core;
 using Mesawer.Exceptions;
 
@@ -343,7 +343,13 @@ namespace Mesawer
 
                     if (!rest.IsNullOrWhitespace())
                     {
-                        var timer = new Timer(ShutDownCallback, null, 0, Convert.ToInt32(rest) * 1000);
+                        var timer = new Timer(Convert.ToInt32(rest) * 1000)
+                        {
+                            AutoReset = false,
+                            Enabled = true
+                        };
+
+                        timer.Elapsed += ShutDownCallback;
                         Console.WriteLine("Your PC will be turned off after {0} seconds, restart the terminal to cancel.",
                             Convert.ToInt32(Convert.ToInt32(rest)));
                     }
@@ -363,7 +369,7 @@ namespace Mesawer
             }
         }
 
-        private static void ShutDownCallback(object state = null)
+        private static void ShutDownCallback(object source = null, ElapsedEventArgs args = null)
         {
             var psi = new ProcessStartInfo("shutdown", "/s /t 0")
             {

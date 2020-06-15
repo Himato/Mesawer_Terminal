@@ -1,7 +1,9 @@
 ﻿
+using System;
+
 namespace Mesawer.Core
 {
-    internal class Folders : ListItem
+    internal class Folders : ListItem, IDisposable
     {
         private const string Path = "./folders.txt";
 
@@ -14,14 +16,14 @@ namespace Mesawer.Core
             Load(Path);
         }
 
-        ~Folders()
-        {
-            Save();
-        }
-
         public void Save()
         {
             Save(Path);
+        }
+
+        public void Dispose()
+        {
+            Save();
         }
     }
 }

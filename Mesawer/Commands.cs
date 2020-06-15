@@ -50,13 +50,17 @@ namespace Mesawer
                 var data = match.Groups;
                 if (data[1].ToString().Equals(Folders.Identifier))
                 {
-                    Folders.AddItem(new Item(data[2].ToString(), data[3].ToString()));
-                    Folders.Save();
+                    using (Folders)
+                    {
+                        Folders.AddItem(new Item(data[2].ToString(), data[3].ToString()));
+                    }
                 }
                 else if (data[1].ToString().Equals(Files.Identifier))
                 {
-                    Files.AddItem(new Item(data[2].ToString(), data[3].ToString()));
-                    Files.Save();
+                    using (Files)
+                    {
+                        Files.AddItem(new Item(data[2].ToString(), data[3].ToString()));
+                    }
                 }
             }
             else
@@ -222,15 +226,19 @@ namespace Mesawer
             {
                 var oldName = values[2].ToString();
                 var newName = values[3].ToString();
-                Folders.ChangeName(oldName, newName);
-                Folders.Save();
+                using (Folders)
+                {
+                    Folders.ChangeName(oldName, newName);
+                }
             }
             else if (values[1].ToString().Equals(Files.StringIdentifier, StringComparison.InvariantCultureIgnoreCase))
             {
                 var oldName = values[2].ToString();
                 var newName = values[3].ToString();
-                Files.ChangeName(oldName, newName);
-                Files.Save();
+                using (Files)
+                {
+                    Files.ChangeName(oldName, newName);
+                }
             }
             else
             {
@@ -264,14 +272,18 @@ namespace Mesawer
             if (values[1].ToString().Equals(Folders.StringIdentifier, StringComparison.InvariantCultureIgnoreCase))
             {
                 var name = values[2].ToString();
-                Folders.RemoveItem(name);
-                Folders.Save();
+                using (Folders)
+                {
+                    Folders.RemoveItem(name);
+                }
             }
             else if (values[1].ToString().Equals(Files.StringIdentifier, StringComparison.InvariantCultureIgnoreCase))
             {
                 var name = values[2].ToString();
-                Files.RemoveItem(name);
-                Files.Save();
+                using (Files)
+                {
+                    Files.RemoveItem(name);
+                }
             }
             else
             {

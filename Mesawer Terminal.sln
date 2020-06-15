@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesawer", "Mesawer\Mesawer.csproj", "{67995F9E-B24F-4263-A405-529CA6FA322E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesawer Terminal", "Mesawer Terminal\Mesawer Terminal.csproj", "{7D024FCC-8ED2-4CE2-8817-D0AD59DB50FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67995F9E-B24F-4263-A405-529CA6FA322E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67995F9E-B24F-4263-A405-529CA6FA322E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67995F9E-B24F-4263-A405-529CA6FA322E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67995F9E-B24F-4263-A405-529CA6FA322E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D024FCC-8ED2-4CE2-8817-D0AD59DB50FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D024FCC-8ED2-4CE2-8817-D0AD59DB50FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D024FCC-8ED2-4CE2-8817-D0AD59DB50FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D024FCC-8ED2-4CE2-8817-D0AD59DB50FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8D93F94-5682-4326-9CBF-D1176297C671}
+	EndGlobalSection
+EndGlobal

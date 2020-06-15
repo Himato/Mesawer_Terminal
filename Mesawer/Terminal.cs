@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using Mesawer.Exceptions;
 
 namespace Mesawer
 {
@@ -41,7 +42,7 @@ Version: {0}                    Created By: Ibrahim Mesawer                     
                     {
                         Console.WriteLine(ex.Message);
                     }
-                    catch (Exception)
+                    catch
                     {
                         return;
                     }

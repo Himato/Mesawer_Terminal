@@ -31,7 +31,14 @@ namespace Mesawer
                 throw new InvalidCommandException(command);
             }
 
-            method.Invoke(null, new object[] { data });
+            try
+            {
+                method.Invoke(null, new object[] {data});
+            }
+            catch (TargetInvocationException exception)
+            {
+                throw exception.InnerException ?? new Exception();
+            }
         }
 
         [Command(Description = "Adds a program to your files list")]

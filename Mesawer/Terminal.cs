@@ -9,7 +9,7 @@ namespace Mesawer
 
         public static void Run()
         {
-
+            /*
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(@"
 ___  ___                                         _____                       _                _ 
@@ -22,6 +22,10 @@ ___  ___                                         _____                       _  
 Version: {0}                    Created By: Ibrahim Mesawer                     In: 26 Feb. 2019", Shared.Version);
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine();
+
+    */
+
+            Console.SetWindowSize(56, 16);
 
             do
             {
